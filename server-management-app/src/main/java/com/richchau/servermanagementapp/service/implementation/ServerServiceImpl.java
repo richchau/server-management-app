@@ -14,6 +14,12 @@ public class ServerServiceImpl implements ServerService {
     }
 
     @Override
+    public Server ping(String ipAddress) {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+    @Override
     public Collection<Server> list(int limit) {
         // TODO Auto-generated method stub
         return null;
@@ -36,5 +42,4 @@ public class ServerServiceImpl implements ServerService {
         // TODO Auto-generated method stub
         return null;
     }
-
 }
