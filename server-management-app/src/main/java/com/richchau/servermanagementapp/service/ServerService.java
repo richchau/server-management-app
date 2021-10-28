@@ -1,5 +1,6 @@
 package com.richchau.servermanagementapp.service;
 
+import java.io.IOException;
 import java.util.Collection;
 
 import com.richchau.servermanagementapp.model.Server;
@@ -7,7 +8,7 @@ import com.richchau.servermanagementapp.model.Server;
 public interface ServerService {
     Server create(Server server);
 
-    Server ping(String ipAddress);
+    Server ping(String ipAddress) throws IOException;
 
     Collection<Server> list(int limit);
 
