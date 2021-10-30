@@ -11,6 +11,7 @@ import com.richchau.servermanagementapp.repo.ServerRepo;
 import com.richchau.servermanagementapp.service.ServerService;
 import com.richchau.servermanagementapp.enumeration.Status;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -43,14 +44,14 @@ public class ServerServiceImpl implements ServerService {
 
     @Override
     public Collection<Server> list(int limit) {
-        // TODO Auto-generated method stub
-        return null;
+        log.info("Fetching all servers");
+        return serverRepo.findAll(PageRequest.of(0, limit)).toList();
     }
 
     @Override
     public Server get(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        log.info("Fetching server by id: {}", id);
+        return serverRepo.findById(id).get();
     }
 
     @Override
