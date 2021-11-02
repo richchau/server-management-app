@@ -62,8 +62,9 @@ public class ServerServiceImpl implements ServerService {
 
     @Override
     public Boolean delete(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        log.info("Deleting server by ID: {}", id);
+        serverRepo.deleteById(id);
+        return true;
     }
 
     private String setServerImageUrl() {
