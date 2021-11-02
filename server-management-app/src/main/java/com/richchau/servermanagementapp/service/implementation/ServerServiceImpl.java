@@ -56,8 +56,8 @@ public class ServerServiceImpl implements ServerService {
 
     @Override
     public Server update(Server server) {
-        // TODO Auto-generated method stub
-        return null;
+        log.info("Updating server: {}", server.getName());
+        return serverRepo.save(server);
     }
 
     @Override
