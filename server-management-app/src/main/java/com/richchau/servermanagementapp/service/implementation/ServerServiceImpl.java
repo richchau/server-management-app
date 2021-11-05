@@ -3,6 +3,7 @@ package com.richchau.servermanagementapp.service.implementation;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Collection;
+import java.util.Random;
 
 import javax.transaction.Transactional;
 
@@ -13,6 +14,7 @@ import com.richchau.servermanagementapp.enumeration.Status;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -68,6 +70,8 @@ public class ServerServiceImpl implements ServerService {
     }
 
     private String setServerImageUrl() {
-        return null;
+        String[] imageNames = { "server1.png", "server2.png", "server3.png", "server4.png" };
+        return ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/server/image/" + imageNames[new Random().nextInt(4)]).toUriString();
     }
 }
